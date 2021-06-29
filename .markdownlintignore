@@ -1,0 +1,15 @@
+node_modules/
+
+# Temp
+_SCRATCH/
+curriculum/README.md
+curriculum/class-??/
+curriculum/prework/
+curriculum/projects/
+curriculum/resources/
+extra-lectures/
+facilitator/
+projects/
+resources/
+
+# Fixed

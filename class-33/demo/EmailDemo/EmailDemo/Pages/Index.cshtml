@@ -1,0 +1,35 @@
+@page
+@model EmailDemo.Pages.IndexModel
+@{
+}
+
+<h2>Emailing 101</h2>
+
+<h3>Add a Player</h3>
+<form method="post">
+  <div>
+    <label asp-for="@Model.player.Name">Name:</label>
+    <input asp-for="@Model.player.Name" />
+  </div>
+  <div>
+    <label asp-for="@Model.player.Email">Email:</label>
+    <input asp-for="@Model.player.Email" />
+  </div>
+  <div>
+    <label asp-for="@Model.player.Position">Position:</label>
+    <input asp-for="@Model.player.Position" />
+  </div>
+  <div>
+    <label asp-for="@Model.player.Number">Number:</label>
+    <input asp-for="@Model.player.Number" />
+  </div>
+  <div><button>Save Player</button></div>
+</form>
+
+<div asp-validation-summary="All"></div>
+
+@if (Model.Message != null)
+{
+  <h2>@Model.Message</h2>
+}
+

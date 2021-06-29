@@ -1,0 +1,19 @@
+@model FormsDemo.Models.Dog
+
+
+<div>
+  Name:<input asp-for="@Model.Name" />
+</div>
+
+<div>
+  Breed::<input asp-for="@Model.Breed" />
+</div>
+
+<div>
+  Owner::<input asp-for="@Model.Owner" />
+</div>
+
+<input type="submit" value="Save Dog" />
+
+<div asp-validation-summary="All"></div>
+

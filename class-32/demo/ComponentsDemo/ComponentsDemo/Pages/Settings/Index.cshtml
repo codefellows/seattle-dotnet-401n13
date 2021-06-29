@@ -1,0 +1,18 @@
+@page
+@model ComponentsDemo.Pages.Settings.IndexModel
+@{
+}
+
+<form method="post">
+  <div>
+    <label asp-for="Settings.Username">User Name:</label>
+    <input asp-for="Settings.Username" type="text" />
+  </div>
+  <div>
+    <label asp-for="Settings.Mode">Display Mode:</label>
+    <select asp-for="Settings.Mode" asp-items="Html.GetEnumSelectList<ComponentsDemo.Pages.Settings.IndexModel.DisplayMode>()">
+      <option selected="selected" value="">Please select</option>
+    </select>
+  </div>
+  <div><button>Save Settings</button></div>
+</form>

@@ -1,0 +1,10 @@
+@model MVCDemo.Models.ViewModels.BlogPostVm
+
+<h1>@Model.Blog.Title</h1>
+<div>@Model.Blog.Description</div>
+
+<article>
+  <title><h2>@Model.Post.Title</h2></title>
+  <aside>@Model.Post.Author on @Model.Post.PostTime</aside>
+  <p>@Model.Post.Article</p>
+</article>
