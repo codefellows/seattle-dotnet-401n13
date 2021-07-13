@@ -15,8 +15,17 @@ namespace TestingDemo
     // If it's divisble by both 3 and 5, returnfizzbuzz"
     // Otherwise ... returnhe number
 
+    /// <summary>
+    /// This will evaluate a number, returning fizz, buzz or fizzbuzz (3/5/15)
+    /// </summary>
+    /// <param name="num"></param>
+    /// <returns>string ... as noted</returns>
     public static string Convert(int num)
     {
+
+      // Went with a switch/case to avoid endless if statements and provide
+      // built-in evaluators. First eval is the LCD and from there, we suss out
+      // the right combinations
 
       switch (num % 15)
       {
