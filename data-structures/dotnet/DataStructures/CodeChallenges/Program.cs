@@ -6,7 +6,7 @@ namespace CodeChallenges
   {
     static void Main(string[] args)
     {
-      Console.WriteLine("Hello World!");
+      LinkedListChallengeOne.Run();
     }
   }
 }
