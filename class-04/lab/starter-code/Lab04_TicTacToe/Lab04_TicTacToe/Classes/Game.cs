@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Lab04_TicTacToe.Classes
 {
 	class Game
@@ -30,10 +31,46 @@ namespace Lab04_TicTacToe.Classes
 		/// <returns>Winner</returns>
 		public Player Play()
 		{
+			int turnCount = 1;
 
+			while (CheckForWinner(Board) == false)
+			{
+				Player currentPlayer = NextPlayer();
+
+				if (turnCount < 9)
+				{
+					//Start Player 1 Turn
+
+					Board.DisplayBoard();
+
+					currentPlayer.TakeTurn(Board);
+
+
+
+
+
+					//Board.GameBoard[currentPosition.Row, currentPosition.Column] = currentPlayer.Marker;
+
+					CheckForWinner(Board);
+
+
+					SwitchPlayer();
+					turnCount++;
+					Console.WriteLine(PlayerOne.IsTurn);
+					Console.WriteLine(PlayerTwo.IsTurn);
+
+				}
+				else
+				{
+					Console.WriteLine("Game is a draw");
+
+				}
+			}
+
+			return Winner;
 			//TODO: Complete this method and utilize the rest of the class structure to play the game.
 
-            /*
+			/*
              * Complete this method by constructing the logic for the actual playing of Tic Tac Toe. 
              * 
              * A few things to get you started:
@@ -84,7 +121,7 @@ namespace Lab04_TicTacToe.Classes
 
 				// TODO:  Determine a winner has been reached. 
 				// return true if a winner has been reached. 
-			
+
 			}
 
 			return false;
@@ -107,10 +144,10 @@ namespace Lab04_TicTacToe.Classes
 		{
 			if (PlayerOne.IsTurn)
 			{
-              
+
 				PlayerOne.IsTurn = false;
 
-              
+
 				PlayerTwo.IsTurn = true;
 			}
 			else
