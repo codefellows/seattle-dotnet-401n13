@@ -10,9 +10,9 @@ namespace TestingDemo
   {
 
     // Need a method that takes a number
-    // If it's divisble only by 3, returnfizz"
-    // If it's divisble only by 5, returnbuzz"
-    // If it's divisble by both 3 and 5, returnfizzbuzz"
+    // If it's divisble only by 3, return fizz"
+    // If it's divisble only by 5, return buzz"
+    // If it's divisble by both 3 and 5, return fizzbuzz"
     // Otherwise ... returnhe number
 
     /// <summary>
@@ -20,12 +20,27 @@ namespace TestingDemo
     /// </summary>
     /// <param name="num"></param>
     /// <returns>string ... as noted</returns>
+
+
+
+    // DEMO 1: Do FizzBuzz using an if statement and write tests
+
+    //public static string Convert(int num)
+    //{
+
+    //  if(num % 15 == 0) { return "fizzbuzz";  }
+    //  else if(num % 5 == 0) { return "buzz";  }
+    //  else if(num % 3 == 0) { return "fizz";  }
+    //  else {  return num.ToString();  }
+
+    //}
+
+    // DEMO 2: Refactor Convert to use a switch statement. Your tests should
+    //         still work. This is what it means to refactor: New implementation
+    //         same signature
+
     public static string Convert(int num)
     {
-
-      // Went with a switch/case to avoid endless if statements and provide
-      // built-in evaluators. First eval is the LCD and from there, we suss out
-      // the right combinations
 
       switch (num % 15)
       {
