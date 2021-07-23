@@ -1,14 +1,16 @@
 using System;
+using System.Collections.Generic;
+
 namespace DataStructures
 {
-  public class Node
+  public class Node<T>
   {
-    public int Value { get; set; }
-    public Node Next { get; set; }
+    public T Value { get; set; }
+    public Node<T> Next { get; set; }
 
     // Node node = new Node(4);  (4) -> 
 
-    public Node( int value )
+    public Node(T value)
     {
       Value = value;
     }
