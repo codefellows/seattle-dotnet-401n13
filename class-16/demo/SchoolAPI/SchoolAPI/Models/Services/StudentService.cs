@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SchoolAPI.Data;
+using SchoolAPI.Models.DTO;
 using SchoolAPI.Models.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -12,56 +13,88 @@ namespace SchoolAPI.Models.Services
   {
 
     private SchoolDbContext _context;
+    private ICourse _courses;
 
-    public StudentService(SchoolDbContext context)
+    public StudentService(SchoolDbContext context, ICourse courseService)
     {
       _context = context;
+      _courses = courseService;
     }
-    public async Task<Student> Create(Student student)
+    public async Task<StudentDto> Create(NewStudentDto inboundStudent)
     {
       // student is an instance of Sudent
       // the current state of the student object: raw
+      // {  Name= "John Cokos", CourseCode }
+
+      // Make a new student
+      // Fetch the course ID from that coursecode
+
+      Student student = new Student()
+      {
+        FirstName = inboundStudent.Name.Split(" ").First<string>(),
+        LastName = inboundStudent.Name.Split(" ").Last<string>()
+      };
 
       _context.Entry(student).State = EntityState.Added;
-      // the current state of the student object: added
-
       await _context.SaveChangesAsync();
 
-      return student;
+      // Now we have a student ID and a course code, but I need a course ID
+      Course course = await _courses.GetCourseByCode(inboundStudent.CourseCode);
+
+      await _courses.AddStudent(course.Id, student.Id);
+
+
+      StudentDto addedSTudent = await GetStudent(student.Id);
+
+      return addedSTudent;
     }
 
 
-    public async Task<List<Student>> GetStudents()
+    // this will need to return a packaged list of students (DTO)
+    public async Task<List<StudentDto>> GetStudents()
     {
       // var students = await _context.Students.ToListAsync();
       // return students;
 
       return await _context.Students
-        .Include(s => s.Enrollments)
-        .ThenInclude(e => e.Course)
-        .ToListAsync();
+        .Select(student => new StudentDto
+        {
+          Id = student.Id,
+          FirstName = student.FirstName,
+          LastName = student.LastName,
+          Courses = student.Enrollments
+              .Select(t => new CourseDto
+              {
+                CourseCode = t.Course.CourseCode,
+                Technology = t.Course.Technology.Name
+              }).ToList()
+        }).ToListAsync();
     }
 
-    public async Task<Student> GetStudent(int id)
+    // Return a packaged up student (DTO)
+    public async Task<StudentDto> GetStudent(int id)
     {
 
-      // Student student = await _context.Students.FindAsync(id);
-      // return student;
+      // Return a StudentDto instead of a Student
 
-      // Student student = await _context.Students.FindAsync(id);
-      // var enrollments = await _context.Enrollments.Where(x => x.StudentId == id)
-      //                                            .Include(x => x.Course)
-      //                                            .ToListAsync();
-
-      // student.Enrollments = enrollments;
-      // return student;
-
-      // Now with a mondo linq query
+      // return await _context.Students
+      //                     .Include(s => s.Enrollments)
+      //                    .ThenInclude(e => e.Course)
+      //                  .FirstOrDefaultAsync(s => s.Id == id);
 
       return await _context.Students
-                           .Include(s => s.Enrollments)
-                           .ThenInclude(e => e.Course)
-                           .FirstOrDefaultAsync(s => s.Id == id);
+        .Select(student => new StudentDto
+        {
+          Id = student.Id,
+          FirstName = student.FirstName,
+          LastName = student.LastName,
+          Courses = student.Enrollments
+            .Select(t => new CourseDto
+            {
+              CourseCode = t.Course.CourseCode,
+              Technology = t.Course.Technology.Name
+            }).ToList()
+        }).FirstOrDefaultAsync(s => s.Id == id);
 
 
     }
@@ -75,7 +108,7 @@ namespace SchoolAPI.Models.Services
 
     public async Task Delete(int id)
     {
-      Student student = await GetStudent(id);
+      Student student = await _context.Students.FindAsync(id);
       _context.Entry(student).State = EntityState.Deleted;
       await _context.SaveChangesAsync();
     }

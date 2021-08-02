@@ -53,6 +53,14 @@ namespace SchoolAPI.Models.Services
         .FirstOrDefaultAsync(s => s.Id == id);
     }
 
+    public async Task<Course> GetCourseByCode(string code)
+    {
+      return await _context.Courses
+        .Include(c => c.Enrollments)
+        .ThenInclude(e => e.Student)
+        .FirstOrDefaultAsync(s => s.CourseCode == code);
+    }
+
     public async Task<Course> UpdateCourse(int id, Course course)
     {
       _context.Entry(course).State = EntityState.Modified;

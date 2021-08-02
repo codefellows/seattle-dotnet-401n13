@@ -1,3 +1,4 @@
+using SchoolAPI.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,14 @@ namespace SchoolAPI.Models.Interfaces
   public interface IStudent
   {
     // CREATE
-    Task<Student> Create(Student student);
+    Task<StudentDto> Create(NewStudentDto student);
 
     // GET ALL
 
-    Task<List<Student>> GetStudents();
+    Task<List<StudentDto>> GetStudents();
 
     // GET ONE BY ID
-    Task<Student> GetStudent(int id);
+    Task<StudentDto> GetStudent(int id);
 
     // UPDATE
     Task<Student> UpdateStudent(int id, Student student);

@@ -17,6 +17,9 @@ namespace SchoolAPI.Models.Interfaces
     // GET ONE BY ID
     Task<Course> GetCourse(int id);
 
+    // GET ONE BY CODE
+    Task<Course> GetCourseByCode(string code);
+
     // UPDATE
     Task<Course> UpdateCourse(int id, Course course);
 

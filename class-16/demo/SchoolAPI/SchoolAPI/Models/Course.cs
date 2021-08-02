@@ -12,6 +12,8 @@ namespace SchoolAPI.Models
     public int TechnologyId { get; set; }
 
     public List<Enrollment> Enrollments { get; set; }
+
+    public Technology Technology { get; set; }
   }
 
 }

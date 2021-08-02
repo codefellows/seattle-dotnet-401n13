@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolAPI.Data;
 using SchoolAPI.Models;
+using SchoolAPI.Models.DTO;
 using SchoolAPI.Models.Interfaces;
 
 namespace SchoolAPI.Controllers
@@ -23,20 +24,22 @@ namespace SchoolAPI.Controllers
       _student = s;
     }
 
+    // Currently is returning a list of students ... but what we want is a list of packaged up students
     // GET: api/Students
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Student>>> GetStudents()
+    public async Task<ActionResult<IEnumerable<StudentDto>>> GetStudents()
     {
       // You should count the list ...
       var list = await _student.GetStudents();
       return Ok(list);
     }
 
+    // Currently is returning a student ... but what we want is a  packaged up student
     // GET: api/Students/5
     [HttpGet("{id}")]
-    public async Task<ActionResult<Student>> GetStudent(int id)
+    public async Task<ActionResult<StudentDto>> GetStudent(int id)
     {
-      Student student = await _student.GetStudent(id);
+      StudentDto student = await _student.GetStudent(id);
       return student;
     }
 
@@ -58,13 +61,13 @@ namespace SchoolAPI.Controllers
     // POST: api/Students
     // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
     [HttpPost]
-    public async Task<ActionResult<Student>> PostStudent(Student student)
+    public async Task<ActionResult<StudentDto>> PostStudent(NewStudentDto student)
     {
-      await _student.Create(student);
+      StudentDto newStudent = await _student.Create(student);
 
       // Return a 201 Header to browser
       // The body of the request will be us running GetStudent(id);
-      return CreatedAtAction("GetStudent", new { id = student.Id }, student);
+      return CreatedAtAction("GetStudent", new { id = newStudent.Id }, newStudent);
     }
 
     // DELETE: api/Students/5
