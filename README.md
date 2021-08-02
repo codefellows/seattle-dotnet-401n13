@@ -1,5 +1,6 @@
 # 401 ASP.NET Core Curriculum Overview
 
+
 The ASP.NET curriculum is broken up into three main modules:
 1. Intro to C#
 1. ASP.NET Web Development
