@@ -1,12 +1,14 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using SchoolAPI.Data;
+using SchoolAPI.Models;
 using SchoolAPI.Models.Interfaces;
 using SchoolAPI.Models.Services;
 using System;
@@ -47,6 +49,12 @@ namespace SchoolAPI
         });
       });
 
+      services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+      {
+        // Other things are possible
+        options.User.RequireUniqueEmail = true;
+      }).AddEntityFrameworkStores<SchoolDbContext>();
+
       // This map the dependency (IStudent) to the correct service (StudentService)
       // "Whenever I see "IStudent" use "StudentService"
       // This means that I can swap out StudentService for ANYTHING
@@ -54,6 +62,7 @@ namespace SchoolAPI
       services.AddTransient<IStudent, StudentService>();
       services.AddTransient<ICourse, CourseService>();
       services.AddTransient<ITechnology, TechnologyService>();
+      services.AddTransient<IUser, IdentityUserService>();
 
       services.AddControllers().AddNewtonsoftJson(options =>
         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore

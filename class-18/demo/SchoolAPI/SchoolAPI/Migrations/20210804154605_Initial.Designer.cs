@@ -9,8 +9,8 @@ using SchoolAPI.Data;
 namespace SchoolAPI.Migrations
 {
     [DbContext(typeof(SchoolDbContext))]
-    [Migration("20210729174543_Enrollments")]
-    partial class Enrollments
+    [Migration("20210804154605_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,8 @@ namespace SchoolAPI.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("TechnologyId");
 
                     b.ToTable("Courses");
 
@@ -136,6 +138,17 @@ namespace SchoolAPI.Migrations
                             Id = 4,
                             Name = "Java"
                         });
+                });
+
+            modelBuilder.Entity("SchoolAPI.Models.Course", b =>
+                {
+                    b.HasOne("SchoolAPI.Models.Technology", "Technology")
+                        .WithMany()
+                        .HasForeignKey("TechnologyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Technology");
                 });
 
             modelBuilder.Entity("SchoolAPI.Models.Enrollment", b =>
