@@ -49,7 +49,7 @@ namespace SchoolAPI.Controllers
       return user;
     }
 
-    [Authorize]
+    [Authorize] // [Authorize(Role="Administrator")] ... [Authorize(Policy="create")]
     [HttpGet("me")]
     public async Task<ActionResult<UserDto>> Me()
     {
