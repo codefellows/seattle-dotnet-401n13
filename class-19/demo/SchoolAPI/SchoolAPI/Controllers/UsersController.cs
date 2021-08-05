@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SchoolAPI.Models.DTO;
 using SchoolAPI.Models.Interfaces;
@@ -46,6 +47,13 @@ namespace SchoolAPI.Controllers
       }
 
       return user;
+    }
+
+    [Authorize]
+    [HttpGet("me")]
+    public async Task<ActionResult<UserDto>> Me()
+    {
+      return await userService.GetUserAsync(this.User);
     }
 
 

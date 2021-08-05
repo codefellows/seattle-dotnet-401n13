@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SchoolAPI.Models;
@@ -44,6 +45,40 @@ namespace SchoolAPI.Data
       modelBuilder.Entity<Enrollment>().HasKey(
         enrollment => new { enrollment.CourseId, enrollment.StudentId }
       );
+
+      SeedRole(modelBuilder, "Administrator", "create", "read", "update", "delete");
+      SeedRole(modelBuilder, "Editor", "create", "update");
+      SeedRole(modelBuilder, "Writer", "create");
+
+    }
+
+    private int nextId = 1;
+    // SeedRole( modelBuilder, "admin", ["create", "eat", "sleep"] ..
+    public void SeedRole( ModelBuilder modelBuilder, string roleName, params string[] permissions )
+    {
+
+      var role = new IdentityRole
+      {
+        Id = roleName.ToLower(),
+        Name = roleName,
+        NormalizedName = roleName.ToUpper(),
+        ConcurrencyStamp = Guid.Empty.ToString()
+      };
+
+      modelBuilder.Entity<IdentityRole>().HasData(role);
+
+      var roleClaims = permissions.Select(permission =>
+        new IdentityRoleClaim<string>
+        {
+          Id = nextId++,
+          RoleId = role.Id,
+          ClaimType = "permissions",
+          ClaimValue = permission
+        }
+      ).ToArray();
+
+      modelBuilder.Entity<IdentityRoleClaim<string>>().HasData(roleClaims);
+
     }
   }
 
