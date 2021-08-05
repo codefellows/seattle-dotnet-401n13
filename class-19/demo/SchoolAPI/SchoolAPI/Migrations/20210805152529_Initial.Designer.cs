@@ -10,8 +10,8 @@ using SchoolAPI.Data;
 namespace SchoolAPI.Migrations
 {
     [DbContext(typeof(SchoolDbContext))]
-    [Migration("20210804174013_IdentityFramework")]
-    partial class IdentityFramework
+    [Migration("20210805152529_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
