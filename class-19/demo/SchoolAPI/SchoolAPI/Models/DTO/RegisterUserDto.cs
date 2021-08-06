@@ -18,5 +18,8 @@ namespace SchoolAPI.Models.DTO
     public string Email { get; set; }
 
     public string PhoneNumber { get; set; }
+
+    // This not best practice ....users should never declare their own role
+    public List<string> Roles { get; set; }
   }
 }
