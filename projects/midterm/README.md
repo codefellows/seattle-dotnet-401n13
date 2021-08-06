@@ -2,15 +2,6 @@
 
 ## Teams
 
-| Team 1  | Team 2   |
-|---------|----------|
-| David   | Scott    |
-| Matthew | Michael  |
-| Ameilia | JP       |
-| Alan    | Kjell    |
-| Jordan  | Krystian |
-
-
 ## Logistics
 
 - [Application Requirements](./requirements.md)
