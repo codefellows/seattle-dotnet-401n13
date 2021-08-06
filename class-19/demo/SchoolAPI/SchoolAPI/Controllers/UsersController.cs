@@ -49,7 +49,9 @@ namespace SchoolAPI.Controllers
       return user;
     }
 
-    [Authorize] // [Authorize(Role="Administrator")] ... [Authorize(Policy="create")]
+    // [Authorize] //   You just need to be a valid user
+    // [Authorize(Roles="Writer")] //  You need to be assigned to this role
+    [Authorize(Policy="update")]  // Your role needs to grant you this permission
     [HttpGet("me")]
     public async Task<ActionResult<UserDto>> Me()
     {

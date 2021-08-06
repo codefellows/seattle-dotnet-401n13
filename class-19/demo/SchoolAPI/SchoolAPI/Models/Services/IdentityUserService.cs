@@ -55,11 +55,14 @@ namespace SchoolAPI.Models.Services
       if(result.Succeeded)
       {
 
+        await userManager.AddToRolesAsync(user, data.Roles);
+
         return new UserDto
         {
           Id = user.Id,
           Username = user.UserName,
-          Token = await tokenService.GetTokenAsync(user, System.TimeSpan.FromMinutes(15))
+          Token = await tokenService.GetTokenAsync(user, System.TimeSpan.FromMinutes(15)),
+          Roles = await userManager.GetRolesAsync(user)
         };
       }
 
