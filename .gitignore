@@ -1,5 +1,7 @@
 # Created by https://www.gitignore.io/api/linux,macos,windows,visualstudio,visualstudiocode
 
+*.sqlite
+
 ### Linux ###
 *~
 
@@ -14,6 +16,8 @@
 
 # .nfs files are created when an open file is removed but is still being accessed
 .nfs*
+
+*.sqllite
 
 ### macOS ###
 *.DS_Store
@@ -368,7 +372,8 @@ __pycache__/
 
 
 # End of https://www.gitignore.io/api/linux,macos,windows,visualstudio,visualstudiocode
+/.vscode
 
-# Custom
-bin
-obj
+# 401.net
+*.exe
+*.dll
