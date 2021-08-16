@@ -2,13 +2,12 @@
 
 ## Teams
 
-| Team 1  | Team 2   |
-|---------|----------|
-| David   | Scott    |
-| Matthew | Michael  |
-| Ameilia | JP       |
-| Alan    | Kjell    |
-| Jordan  | Krystian |
+
+|Team 1|Team 2|Team 3|
+|------|------|----------|
+|Miriam|Steven|Ben Ibarra|
+|Q		 |Joshua|Jona|
+|Dave	 |Chaz	|Joel|
 
 
 ## Logistics
@@ -17,6 +16,7 @@
 - [Requirement Docs](../software-requirements.md)
 - [User Stories](../user-stories.md)
 - [Development Schedule](./schedule.md)
+- [Presentation](https://docs.google.com/presentation/d/1jmnVceamFG8mUcP_7zaE06Ai_Jpv2nw6Io5my9m9-i0/edit#slide=id.g2accd1c413_3_31)
 
 ## Ideas
 
