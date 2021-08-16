@@ -2,6 +2,14 @@
 
 ## Teams
 
+
+|Team 1|Team 2|Team 3|
+|------|------|----------|
+|Miriam|Steven|Ben Ibarra|
+|Q		 |Joshua|Jona|
+|Dave	 |Chaz	|Joel|
+
+
 ## Logistics
 
 - [Application Requirements](./requirements.md)
