@@ -1,0 +1,11 @@
+﻿@model IEnumerable<MVCDemo.Models.Dog> 
+
+
+<h2>All the dogs are here</h2>
+
+<ul>
+    @foreach( var dog in Model )
+      { 
+        <li><a asp-controller="Pets" asp-action="Dog" asp-route-name=@dog.Name asp-route-age=@dog.Age asp-route-breed=@dog.Breed >@dog.Name</a></li>
+      }
+</ul>
