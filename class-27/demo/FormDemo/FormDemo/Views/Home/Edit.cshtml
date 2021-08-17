@@ -1,0 +1,31 @@
+﻿@model FormDemo.Models.Pet
+<!-- this gives us access to the enum -->
+@using FormDemo.Models
+
+<h2>Edit a pet...</h2>
+
+<form asp-controller="Home" asp-action="Update" method="post">
+    <label>
+        <span>Type</span>
+        <select asp-for="@Model.Type" asp-items="Html.GetEnumSelectList<PetType>()"></select>
+    </label>
+
+    <label>
+        <span>Name</span>
+        <input asp-for="@Model.Name" />
+    </label>
+
+    <label>
+        <span>Owner</span>
+        <input asp-for="@Model.Owner" />
+    </label>
+
+    <label>
+        <span>Age</span>
+        <input asp-for="@Model.Age" />
+    </label>
+
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    <button type="submit">Save</button>
+</form>
