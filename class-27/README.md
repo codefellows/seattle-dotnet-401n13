@@ -1,9 +1,6 @@
-# Authentication, Authorization, Cookies
+# MVC Forms
 
-When working directly with APIs we used a "Bearer Token" with http headers to allow a "logged in" user to access resources based on their identity, claim, and policy using Roles.
-
-In a web application, the same process must still exist, but the mechanism changes from using a Bearer Token + Header combination and instead relies on **HTTP Cookies**
-
+Performing CRUD Operations on a set of database tables requires us to build Forms that are bound to our data models and our data sources. This will allow our users to easily work with the database through our Web UI
 
 ## Learning Objectives
 
@@ -11,15 +8,14 @@ In a web application, the same process must still exist, but the mechanism chang
 
 #### Describe and Define
 
-- HTTP Cookies
-  - Use Cases
-  - Security Concerns
-  - Best Practices
+- MVC Forms
+- Model Binding
+- Authorization
 
 #### Execute
 
-- Provide a cookie to a user on a valid login
-- Restrict/Grant access to resources using Authentication/Authorization via Cookies
+- CRUD Forms using MVC and Model Binding
+- Role Based Access Control
 
 ## Today's Outline
 
