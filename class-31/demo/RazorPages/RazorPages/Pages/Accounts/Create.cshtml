@@ -1,0 +1,24 @@
+﻿@page
+@model RazorPages.Pages.Accounts.CreateModel
+@{
+}
+
+<h2>Add a person</h2>
+
+<form method="post">
+<div>
+    <label for="Input.Name">Full Name</label>
+    <input asp-for="Input.Name" />
+</div>
+
+<div>
+    <label asp-for="Input.Age">Age</label>
+    <input asp-for="Input.Age" />
+</div>
+
+<div>
+    <button>Add Person</button>
+</div>
+
+</form>
+
