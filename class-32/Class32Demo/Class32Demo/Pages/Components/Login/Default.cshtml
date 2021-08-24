@@ -1,0 +1,11 @@
+﻿@model Class32Demo.Components.Login.ViewModel
+
+<span class="navbar-text">@Model.Username</span>
+@if (!String.IsNullOrEmpty(Model.Username))
+{
+    <a href="/logout" class="navbar-brand">Logout</a>
+}
+else
+{
+    <a href="/login" class="navbar-brand">Login</a>
+}

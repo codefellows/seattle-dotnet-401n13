@@ -1,0 +1,15 @@
+﻿@page
+@model Class32Demo.Pages.IndexModel
+@{
+}
+
+@if(User.Identity.IsAuthenticated)
+ {
+     <h2>Welcome, User</h2>
+ }
+ else
+ {
+     <h2>Welcome, Guest</h2>
+ }
+
+  

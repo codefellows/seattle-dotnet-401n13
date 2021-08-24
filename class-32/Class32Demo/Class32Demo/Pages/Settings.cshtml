@@ -1,0 +1,14 @@
+﻿@page
+@model Class32Demo.Pages.SettingsModel
+
+
+<h3>User Settings</h3>
+
+<form method="post">
+    <label asp-for="Input.UserName">Username</label>
+    <input asp-for="Input.UserName" />
+    <label asp-for="Input.Mode">Mode(Dark/Light)</label>
+    <select asp-for="Input.Mode" asp-items="Html.GetEnumSelectList<Class32Demo.Pages.SettingsModel.ColorScheme>()"></select>
+
+    <button type="submit">Save</button>
+</form>
