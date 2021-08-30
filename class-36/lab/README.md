@@ -1,45 +1,93 @@
-# Lab: Welcome to React, Next.js & TailwindCSS
+# Lab: Create an API for the Salmon Cookies Application
 
 ## Overview
 
-React is great! And though it does A LOT, it's not a full framework. In other words, many common tasks are not handled out of the box by React. So it's up to us devs to make some decisions about how to use React in combination with other tools.
-
-One great "stack" is to use Next.js (which builds on top of React) and style with Tailwind.
-
-Your job is to create a `Cookie Stand Admin` app using [Next.js](https://nextjs.org/){:target="_blank"} and style using [Tailwind CSS](https://tailwindcss.com/){:target="_blank"}.
+Your job is to create an API suitable for handling the CRUD operations for the Pat's Salmon Cookie Stand operation
 
 ## Feature Tasks and Requirements
 
-- The `spec` for lab is screen shot of [Cookie Stand Admin Version 1](./cookie-stand-admin-version-1.png){:target="_blank"}
-- `pages/Index.js` should...
-  - Have `<Head>` component with page title set to `Cookie Stand Admin`
-  - Have a `header` component that matches spec.
-  - Have a `<main>` component containing `<form>` and a placeholder component showing JSON string of last created Cookie Stand.
-  - Have a `<footer>` component that matches spec.
-- Style app using TailwindCSS utility classes.
+1. Create and work in a new repository at GitHub, called: `cookie-stand-api`
+1. Create and setup a Web App and Database at Azure
+   - Use the Free Tier!
+1. Create an API, backed by a database with the following requirements:
 
-## Implementation Notes
+### API
 
-- > npx create-next-app --example with-tailwindcss cookie-stand-admin
-- strip out unused files
-  - Won't break if they get left in, but a good practice to remove stuff you're not using.
-- Pro tip: [Tailwind CSS Extension Pack](https://marketplace.visualstudio.com/items?itemName=andrewmcodes.tailwindcss-extension-pack){:target="_blank"}
+1. **POST**: `/api/cookiestand`
+   - Accepts an object with the following shape:
 
-### User Acceptance Tests
+     ```json
+     {
+        "location": "Barcelona",
+        "description": "",
+        "minimum_customers_per_hour": 3,
+        "maximum_customers_per_hour": 7,
+        "average_cookies_per_sale": 2.5,
+        "owner": null
+     }
+     ```
+
+1. **GET**: `/api/cookiestands`
+   - Returns a JSON object with the following shape:
+
+     ```json
+     [
+       {
+         "id": 336,
+         "location": "Barcelona",
+         "description": "",
+         "hourly_sales": [
+           17,
+           7,
+           7,
+           7,
+           15,
+           17,
+           7,
+           7,
+           12,
+           7,
+           7,
+           10,
+           17,
+           17
+         ],
+         "minimum_customers_per_hour": 3,
+         "maximum_customers_per_hour": 7,
+         "average_cookies_per_sale": 2.5,
+         "owner": null
+       }, ...
+     ]
+     ```
+
+1. **GET**: `/api/cookiestand/{id}`
+   - Returns an object formatted as above, for a single cookie stand with the given ID
+1. **DELETE**: `/api/cookiestand/{id}`
+   - Deletes a cookie stand with the given ID
+   - Returns no content
+1. **PUT**: `/api/cookiestand{id}`
+   - Accepts a JSON Object formatted as a POST object.
+   - Note: Requires the ID to be included in the object
+   - Return the cookie stand object as saved in the database
+
+### Notes and Open Questions
+
+1. Where are the values (hourly sales) coming from?
+
+### Tests
 
 No testing required.
 
-## Configuration
+## Submission Instructions
 
-Create `cookie-stand-admin` repository in Github
-
-Use the folder created by `create-next-app` as the root of your project's git repository.
-
-Refer to [Lab Submission Instructions](../../../reference/submission-instructions/labs/){:target="_blank"} for detailed instructions.
+- Provide a README with proper documentation for the usage of your app
+  - Include your ERD and UML
+- Prove the URL to your deployed API Swagger Documentation
 
 ### Stretch Goals
 
-- Refactor to move components to own functions.
-- Refactor to move components to own files.
-- Add more styling
-- Link to another page within the app
+- Add authentication to the API
+- Add a register and a login route to allow users to create accounts and login
+- Require that only users in the Administrative group can perform any of the above actions
+  - The API will need to accept a JWT Token in the headers of all requests
+- TESTS

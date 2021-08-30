@@ -1,8 +1,10 @@
-# React 1
+# Salmon Cookies API
 
-Django has the ability to render client side web pages nicely. But an increasingly popular stack is develop your APIs using Django REST Framework and use ReactJS on the client side.
+We have created APIs with Authentication and Full Stack Applications using both MVC and MVVM (Razor Pages). We'll now dive into a different stack, the "JAM" Stack
 
-So it's time to dive back into JavaScript and learn React.
+- Javascript
+- API Data
+- Markup
 
 ## Learning Objectives
 
