@@ -1,6 +1,10 @@
-# Xamarin Project Presentations
+# Data Fetching / Authentication
 
-Description Here
+It's time to wire up the Cookie Stand Admin site to an API full of cookie stand data.
+
+But not only will you need to fetch the data, you'll need to authenticate your API requests.
+
+For those tasks you'll need an http client, the ability to handle JSON Web Tokens and a robust way to manage the data.
 
 ## Learning Objectives
 
@@ -8,16 +12,16 @@ Description Here
 
 #### Describe and Define
 
-- A
-- B
-- C
+- axios http client
+- JSON Web Tokens
+- Stale While Revalidate data fetching/caching.
 
 #### Execute
 
-- A
-- B
-- C
+- Log in to a remote API
+- Fetch  API access tokens
+- Handle data updates in a performant way
 
-## Today's Outline
+<!-- ## Today's Outline -->
 
 <!-- To Be Completed By Instructor -->

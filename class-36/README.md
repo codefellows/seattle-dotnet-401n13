@@ -1,6 +1,8 @@
-# Xamarin
+# React 1
 
-Xamarin lets you build native apps for Android, iOS, and macOS using .NET code and platform-specific user interfaces. Xamarin.Forms allows you to build native apps, with shared UI code written in C# or XAML.
+Django has the ability to render client side web pages nicely. But an increasingly popular stack is develop your APIs using Django REST Framework and use ReactJS on the client side.
+
+So it's time to dive back into JavaScript and learn React.
 
 ## Learning Objectives
 
@@ -8,13 +10,18 @@ Xamarin lets you build native apps for Android, iOS, and macOS using .NET code a
 
 #### Describe and Define
 
-- Cross Platform Development
-- "Native" Applications
-- The Xamarin Development/Testing Process
+- Single Page Application (SPA)
+- JSX
+- React Components
+- Application state
 
 #### Execute
 
-- Working (basic) Xamarin Application
+- Create a React application
+- Render React elements
+- Pass data via props
+- Handle application state
+- Handle user input
 
 ## Today's Outline
 

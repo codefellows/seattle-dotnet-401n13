@@ -1,6 +1,8 @@
-# Xamarin: Xamarin: Device Features
+# React 2
 
-Todays mobile devices give us a wide array of hardware features such as the Accelerometer, Camera, GPS, etc. By tapping into these features, we can add new dimensions to our applications.
+Let's continue to deepen our understanding of ReactJS.
+
+Our goal is to start "thinking in React".
 
 ## Learning Objectives
 
@@ -8,14 +10,15 @@ Todays mobile devices give us a wide array of hardware features such as the Acce
 
 #### Describe and Define
 
-- Hardware Features
+- Conditional rendering
+- Lifting up state
+- Composition vs. Inheritance
 
 #### Execute
 
-- Using multiple features
-  - Vibrate
-  - GPS
-  - etc.
+- Render components differently based in unique conditions
+- Efficiently render lists of items
+- Handle user input via forms
 
 ## Today's Outline
 

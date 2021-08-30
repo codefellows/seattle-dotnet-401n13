@@ -1,6 +1,8 @@
-# Xamarin: Forms & Data Services
+# React 1
 
-Using Xamarin Forms, we can save data either to the cloud (via APIs) or locally using SQLite or Files, allowing your application to persist state and store data
+Django has the ability to render client side web pages nicely. But an increasingly popular stack is develop your APIs using Django REST Framework and use ReactJS on the client side.
+
+So it's time to dive back into JavaScript and learn React.
 
 ## Learning Objectives
 
@@ -8,16 +10,18 @@ Using Xamarin Forms, we can save data either to the cloud (via APIs) or locally 
 
 #### Describe and Define
 
-- Xamarin Forms
-- Using Files, Local Storage, and SQLite on a mobile device
-- Use cases for saving data to a phone
-- Security Concerns
+- Single Page Application (SPA)
+- JSX
+- React Components
+- Application state
 
 #### Execute
 
-- Save data to a file
-- Save data to local storage
-- Save data using SQLite
+- Create a React application
+- Render React elements
+- Pass data via props
+- Handle application state
+- Handle user input
 
 ## Today's Outline
 
