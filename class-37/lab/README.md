@@ -39,6 +39,7 @@ Refer to [Lab Submission Instructions](../../../reference/submission-instruction
 
 ### Stretch Goals
 
+- Deploy to Vercel
 - Refactor to move components to own functions.
 - Refactor to move components to own files.
 - Add more styling
