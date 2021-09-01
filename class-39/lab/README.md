@@ -50,7 +50,14 @@ No testing required.
 
 Continue work in `cookie-stand-admin` repository in Github
 
-Refer to [Lab Submission Instructions](../../../reference/submission-instructions/labs/){:target="_blank"} for detailed instructions.
+## Submission Instructions
+
+- Submit a link to your GitHub Repository
+- Submit a link to a PR with today's code to be merged to your `main` branch
+- Your repository should contain a well constructed README with the following information
+  - If your app was deployed, please include a live link to your deployment
+  - Instructions for installing and running your application locally
+  - Any setup or environment settings required
 
 ### Stretch Goals
 

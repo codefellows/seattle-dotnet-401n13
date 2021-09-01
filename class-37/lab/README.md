@@ -20,7 +20,7 @@ Your job is to create a `Cookie Stand Admin` app using [Next.js](https://nextjs.
 
 ## Implementation Notes
 
-- > npx create-next-app --example with-tailwindcss cookie-stand-admin
+- > `npx create-next-app --example with-tailwindcss cookie-stand-admin`
 - strip out unused files
   - Won't break if they get left in, but a good practice to remove stuff you're not using.
 - Pro tip: [Tailwind CSS Extension Pack](https://marketplace.visualstudio.com/items?itemName=andrewmcodes.tailwindcss-extension-pack){:target="_blank"}
@@ -35,7 +35,14 @@ Create `cookie-stand-admin` repository in Github
 
 Use the folder created by `create-next-app` as the root of your project's git repository.
 
-Refer to [Lab Submission Instructions](../../../reference/submission-instructions/labs/){:target="_blank"} for detailed instructions.
+## Submission Instructions
+
+- Submit a link to your GitHub Repository
+- Submit a link to a PR with today's code to be merged to your `main` branch
+- Your repository should contain a well constructed README with the following information
+  - If your app was deployed, please include a live link to your deployment
+  - Instructions for installing and running your application locally
+  - Any setup or environment settings required
 
 ### Stretch Goals
 
