@@ -8,16 +8,16 @@ Description Here
 
 #### Describe and Define
 
-- A
-- B
-- C
+- Unity Game Editor
+- Game Development Process
 
 #### Execute
 
-- A
-- B
-- C
+- Basic game scaffolding
+- User Interactions
 
-## Today's Outline
+## Resources
 
-<!-- To Be Completed By Instructor -->
+- Brackeys: <https://www.youtube.com/channel/UCYbK_tjZ2OrIZFBvU6CCMiA>
+- Code Monkey: <https://www.youtube.com/channel/UCFK6NCbuCIVzA6Yj1G_ZqCg>
+- Unity Resources: <https://github.com/RyanNielson/awesome-unity>
